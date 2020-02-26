@@ -44,15 +44,12 @@ class LRUCache:
     """
     def set(self, key, value):
         if key in self.storage.keys():
-            # self.cache.delete(key)
-            # self.cache.add_to_head(key, value)
-            # self.storage[key] = value 
+             
             self.storage[key] = value
             current_value = self.cache.head
             while current_value.key is not key:
                 current_value = current_value.next
-            # return 
-            # MISTAKE RIGHT HERE --- MISSED IT!!!!!!!!!!!!!
+            
             current_value.value = value
         elif self.cache.length < self.limit:
             self.cache.add_to_head(key, value)
